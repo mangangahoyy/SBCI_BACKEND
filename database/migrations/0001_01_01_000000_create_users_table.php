@@ -12,9 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id()->primary();
+            // $table->string('student_id')->unique()->nullable();
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('mname')->nullable();
+            $table->string('sex');
+            $table->string('extname')->nullable();
             $table->string('email')->unique();
+            $table->enum('course', ['BSSEGE', 'BSEEM', 'BSC', 'BSCA', 'BSIT', 'BSHM', 'BSTM'])->nullable();
+            $table->enum('role', ['college_admin', 'faculty', 'student', 'basicEd_admin','encoder', 'evaluator', 'user', 'super_admin'])->default('super_admin');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
