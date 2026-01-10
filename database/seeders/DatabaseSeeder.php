@@ -20,19 +20,18 @@ public function run(): void
 {
     // Create a default program
     $program = Program::create([
-        'programName' => 'Default Program',
         'description' => 'This is the default program for super admin',
     ]);
 
     User::create([
-        'userId' => 'SUPERADMIN001',
+        'userId' => 'SUP-0001',
         'fname' => 'Super',
         'lname' => 'Admin',
         'sex' => 'M',
-        'email' => 'superadmin@example.com',
+        'email' => 'admin@sbcicolleges.edu.ph',
         'program_id' => $program->id, // use the actual ID
         'role' => 'super_admin',
-        'password' => Hash::make('password123'),
+        'password' => Hash::make('admin@sbci'),
     ]);
 }
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('extname')->nullable();
             $table->string('email')->unique();
             // $table->enum('course', ['BSSEGE', 'BSEEM', 'BSC', 'BSCA', 'BSIT', 'BSHM', 'BSTM'])->nullable();
-            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('program_id')->nullable()->constrained('programs')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('role', ['college_admin', 'faculty',  'basicEd_admin','encoder', 'evaluator', 'user', 'super_admin'])->default('super_admin');
             // $table->enum('department', ['admin', 'jhs', 'shs', 'college', 'guidance', 'library', 'faculty','clinic', 'registrar', 'inventory'])->default('admin');
             $table->timestamp('email_verified_at')->nullable();

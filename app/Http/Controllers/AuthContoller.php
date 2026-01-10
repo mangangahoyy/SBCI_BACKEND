@@ -32,10 +32,10 @@ public function login(Request $request)
 
     // Create Sanctum token
     $token = $user->createToken('API Token')->plainTextToken;
+    $user->token = $token;
 
-    return response()->json([
-        'user' => $user,
-        'token' => $token,
+    return $this->success('Login successful', [
+        'user' => new UserResource($user),
     ]);
 }
 

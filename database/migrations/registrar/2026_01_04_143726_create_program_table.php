@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('programName', 100);
+            // $table->string('programName', 100);
+            $table->enum('program_name', ['BSSEGE', 'BSEEM', 'BSC', 'BSCA', 'BSIT', 'BSHM', 'BSTM', 'BSE']);
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('program');
+        Schema::dropIfExists('programs');
     }
 };

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('subject_name');
             $table->string('subject_code')->unique();
-            $table->enum('course', ['BSSEGE', 'BSEEM', 'BSC', 'BSCA', 'BSIT', 'BSHM', 'BSTM']);
+            // $table->enum('course', ['BSSEGE', 'BSEEM', 'BSC', 'BSCA', 'BSIT', 'BSHM', 'BSTM']);
             $table->enum('semester', ['1st', '2nd', 'Summer']);
             $table->text('description')->nullable();
             $table->integer('units');
